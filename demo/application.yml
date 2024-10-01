@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/succulentum-collection
+    username: collection
+    password: collection
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+
