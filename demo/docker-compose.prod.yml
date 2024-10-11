@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: succulentum-collection
+    environment:
+      POSTGRES_USER: collection
+      POSTGRES_PASSWORD: collection
+      POSTGRES_DB: succulentum-collection
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/succulentum-collection
+      SPRING_DATASOURCE_USERNAME: collection
+      SPRING_DATASOURCE_PASSWORD: collection
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - ./src/main/resources/application.yml:/app/application.yml
+      - ./src/main/resources/db:/app/db
+
