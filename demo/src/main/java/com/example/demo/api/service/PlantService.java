@@ -13,10 +13,10 @@ public class PlantService {
     public AckResponse editPlant(UpdatePlantRequest updatePlantRequest){
         return null;
     }
-    public AckResponse deletePlant(Long id){
+    public AckResponse deletePlant(int id){
         return null;
     }
-    public PlantResponse getPlant(Long id){
+    public PlantResponse getPlant(int id){
         return null;
     }
 }

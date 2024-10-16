@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/plant")
 public class CollectionController {
-    private final PlantService plantService = null;  //temp initialization
+
+    private final PlantService plantService = null;
 
     //public CollectionController(PlantService plantService) {  //need to create beans
     //    this.plantService = plantService;
@@ -23,12 +24,12 @@ public class CollectionController {
     }
 
     @GetMapping
-    public PlantResponse getPlant(@PathVariable Long id) {
+    public PlantResponse getPlant(@PathVariable int id) {
         return plantService.getPlant(id);
     }
 
     @DeleteMapping("/{id}")
-    public AckResponse deletePlant(@PathVariable Long id) {
+    public AckResponse deletePlant(@PathVariable int id) {
         return plantService.deletePlant(id);
     }
 

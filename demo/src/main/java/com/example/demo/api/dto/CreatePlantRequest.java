@@ -1,29 +1,40 @@
 package com.example.demo.api.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Value;
 import lombok.NonNull;
-
-import java.sql.Timestamp;
+import org.hibernate.type.descriptor.jdbc.TimestampWithTimeZoneJdbcType;
 
 @Builder
 @Value
-public class CreatePlantRequest {
-    private Long id;
+public final class CreatePlantRequest {
+
+    private int id;
+
     @NonNull
-    private Long folderId;
-    @NonNull
+    private int folderId;
+
+    @NotBlank
     private String name;
-    @NonNull
+
+    @NotBlank
     private String description;
-    @NonNull
+
+    @NotBlank
     private String location;
+
     @NonNull
-    private Timestamp addedAt;
-    private Timestamp removedAt;
+    private TimestampWithTimeZoneJdbcType addedAt;
+
+    private TimestampWithTimeZoneJdbcType removedAt;
+
     @NonNull
-    private Boolean isDead;
+    private boolean isDead;
+
     private String deathLocation;
-    private Timestamp deathTime;
+
+    private TimestampWithTimeZoneJdbcType deathTime;
+
     private String deathCause;
 }
