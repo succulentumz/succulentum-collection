@@ -3,10 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main
+      - "*"
   pull_request:
     branches:
-      - main
+      - "*"
 
 jobs:
   build:
@@ -22,8 +22,11 @@ jobs:
           distribution: 'openjdk'
           java-version: '21'
 
+      - name: CD to demo
+        run: cd ./demo
+
       - name: Grant permission for Gradle wrapper
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
 
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
