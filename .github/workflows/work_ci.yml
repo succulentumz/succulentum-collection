@@ -26,14 +26,14 @@ jobs:
         run: cd demo && chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: cd demo && ./gradlew build --no-daemon
+        run: cd demo && ./gradlew bootJar --no-daemon
 
       - name: Run tests
         run:  cd demo && ./gradlew test --no-daemon
 
       - name: Run coverage tests
         if: github.ref == 'refs/heads/master'
-        run: cd demo && ./gradlew jacocoTestReport
+        run: cd demo && ./gradlew check
 
       - name: Upload test coverage report
         if: github.ref == 'refs/heads/master'
