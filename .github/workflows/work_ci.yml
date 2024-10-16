@@ -32,6 +32,7 @@ jobs:
         run:  cd demo && ./gradlew test --no-daemon
 
       - name: Run coverage tests
+        if: github.ref == 'refs/heads/master'
         run: cd demo && ./gradlew jacocoTestReport
 
       - name: Upload test coverage report
