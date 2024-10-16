@@ -22,23 +22,20 @@ jobs:
           distribution: 'zulu'  
           java-version: '21'
 
-      - name: CD to demo
-        run: cd ./demo
-
       - name: Grant permission for Gradle wrapper
-        run: chmod +x ./gradlew
+        run: chmod +x ./demo/gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon
+        run: ./demo/gradlew build --no-daemon
 
       - name: Run tests
-        run: ./gradlew test --no-daemon
+        run: ./demo/gradlew test --no-daemon
 
       - name: Run coverage tests
-        run: ./gradlew jacocoTestReport
+        run: ./demo/gradlew jacocoTestReport
 
       - name: Upload test coverage report
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: build/reports/jacoco/test/html
+          path: ./demo/build/reports/jacoco/test/html
