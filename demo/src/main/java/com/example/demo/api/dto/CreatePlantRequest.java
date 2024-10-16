@@ -2,6 +2,7 @@ package com.example.demo.api.dto;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.NonNull;
 
 import java.sql.Timestamp;
 
@@ -9,12 +10,16 @@ import java.sql.Timestamp;
 @Value
 public class CreatePlantRequest {
     private Long id;
+    @NonNull
     private Long folderId;
+    @NonNull
     private String name;
     private String description;
     private String location;
+    @NonNull
     private Timestamp addedAt;
     private Timestamp removedAt;
+    @NonNull
     private Boolean isDead;
     private String deathLocation;
     private Timestamp deathTime;
