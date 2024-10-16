@@ -36,6 +36,7 @@ jobs:
         run: cd demo && ./gradlew jacocoTestReport
 
       - name: Upload test coverage report
+        if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
