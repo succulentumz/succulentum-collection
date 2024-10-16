@@ -16,10 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up JDK 21 (OpenJDK)
+      - name: Set up JDK 21 (Zulu OpenJDK)
         uses: actions/setup-java@v3
         with:
-          distribution: 'openjdk'
+          distribution: 'zulu'  
           java-version: '21'
 
       - name: CD to demo
