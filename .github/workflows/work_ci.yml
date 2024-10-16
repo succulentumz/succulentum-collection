@@ -23,16 +23,16 @@ jobs:
           java-version: '21'
 
       - name: Grant permission for Gradle wrapper
-        run: chmod +x ./demo/gradlew
+        run: cd demo && chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./demo/gradlew build --no-daemon
+        run: cd demo && ./gradlew build --no-daemon
 
       - name: Run tests
-        run: ./demo/gradlew test --no-daemon
+        run:  cd demo && ./gradlew test --no-daemon
 
       - name: Run coverage tests
-        run: ./demo/gradlew jacocoTestReport
+        run: cd demo && ./gradlew jacocoTestReport
 
       - name: Upload test coverage report
         uses: actions/upload-artifact@v3
