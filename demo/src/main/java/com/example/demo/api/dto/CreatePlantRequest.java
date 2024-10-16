@@ -14,7 +14,9 @@ public class CreatePlantRequest {
     private Long folderId;
     @NonNull
     private String name;
+    @NonNull
     private String description;
+    @NonNull
     private String location;
     @NonNull
     private Timestamp addedAt;

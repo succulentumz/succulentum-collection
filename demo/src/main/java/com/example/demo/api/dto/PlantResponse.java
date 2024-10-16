@@ -9,7 +9,6 @@ import java.sql.Timestamp;
 @Builder
 @Value
 public class PlantResponse {
-    @NonNull
     private Long id;
     @NonNull
     private Long folderId;
@@ -21,14 +20,10 @@ public class PlantResponse {
     private String location;
     @NonNull
     private Timestamp addedAt;
-    @NonNull
     private Timestamp removedAt;
     @NonNull
     private Boolean isDead;
-    @NonNull
     private String deathLocation;
-    @NonNull
     private Timestamp deathTime;
-    @NonNull
     private String deathCause;
 }
