@@ -1,10 +1,11 @@
 package com.example.demo.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Value;
-import lombok.NonNull;
-import org.hibernate.type.descriptor.jdbc.TimestampWithTimeZoneJdbcType;
+
+import java.time.OffsetDateTime;
 
 @Builder
 @Value
@@ -12,7 +13,7 @@ public final class CreatePlantRequest {
 
     private int id;
 
-    @NonNull
+    @NotNull
     private int folderId;
 
     @NotBlank
@@ -24,17 +25,17 @@ public final class CreatePlantRequest {
     @NotBlank
     private String location;
 
-    @NonNull
-    private TimestampWithTimeZoneJdbcType addedAt;
+    @NotNull
+    private OffsetDateTime addedAt;
 
-    private TimestampWithTimeZoneJdbcType removedAt;
+    private OffsetDateTime removedAt;
 
-    @NonNull
+    @NotNull
     private boolean isDead;
 
     private String deathLocation;
 
-    private TimestampWithTimeZoneJdbcType deathTime;
+    private OffsetDateTime deathTime;
 
     private String deathCause;
 }

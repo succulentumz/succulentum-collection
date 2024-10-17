@@ -1,7 +1,10 @@
 package com.example.demo.api.dto;
 
-public class AckResponse {
-    private boolean acknowledged;
+import lombok.Getter;
+
+@Getter
+public final class AckResponse {
+    private final boolean acknowledged;
 
     public AckResponse(boolean acknowledged) {
         this.acknowledged = acknowledged;
